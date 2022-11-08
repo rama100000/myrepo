@@ -3,16 +3,18 @@ pipeline {
   tools {
     maven 'maven-3.8.6' 
   }
+  environment{
+    PATH = "/opt/maven3/bin:$PATH"
+  }
   stages {
-    stage ('Build') {
+    stage ("Git Checkout") {
       steps {
-        sh 'mvn clean package'
+          git credentialsId: 'MAVEN-PROJECT', url: ' https://github.com/rama100000/myrepo.git'
       }
     }
-    stage ('Deploy') {
+    stage ('build') {
       steps {
-        script {
-          deploy adapters: 
+          sh  "mvn clean package" 
         }
       }
     }
