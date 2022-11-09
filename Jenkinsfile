@@ -1,10 +1,15 @@
 pipeline {
-    agent any
+    agent anytools {
+    maven 'maven-3.8.6' 
+  }
+  environment{
+    PATH = "/opt/maven3/bin:$PATH"
+  }
     stages {
         stage('checkoutScm'){
           checkout([
         $class: 'GitSCM', 
-        branches: [[name: '*/master']], 
+        branches: [[name: '*/master2']], 
         doGenerateSubmoduleConfigurations: false, 
         extensions: [[$class: 'CleanCheckout']], 
         submoduleCfg: [], 
