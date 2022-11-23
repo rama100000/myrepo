@@ -7,3 +7,5 @@ RUN git clone https://github.com/simonplend/example-app-nodejs-backend-react-fro
     npm run build
 WORKDIR /example-app-nodejs-backend-react-frontend
 CMD ["npm", "start", "--host", "0.0.0.0"]
+
+###
